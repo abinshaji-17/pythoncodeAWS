@@ -29,6 +29,7 @@ pipeline {
                     string(credentialsId: 's3-bucket-name', variable: 'S3_BUCKET_NAME')
                 ]) {
                     sh '''
+                        set +x
                         docker run -d --name $CONTAINER_NAME \
                           --restart unless-stopped \
                           -p 5020:8000 \
